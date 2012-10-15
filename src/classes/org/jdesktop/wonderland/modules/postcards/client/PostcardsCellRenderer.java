@@ -39,25 +39,24 @@ import org.jdesktop.wonderland.client.jme.artimport.LoaderManager;
 import org.jdesktop.wonderland.client.jme.cellrenderer.BasicRenderer;
 
 /**
- *
  * @author spcworld
  */
-public class PostcardsCellRenderer extends BasicRenderer implements RenderUpdater
-{
+public class PostcardsCellRenderer extends BasicRenderer implements RenderUpdater {
 
     public PostcardsCellRenderer(Cell cell) {
         super(cell);
     }
+
     private TextureRenderBuffer textureBuffer = null;
     private CaptureComponent captureComponent = null;
     private Node viewfinderNode;
     private BufferedImage captureImage = null;
 
     public static final float WIDTH = 1.6f; //x-extent
-    public static final float HEIGHT = 0.9f ; //y-extent
+    public static final float HEIGHT = 0.9f; //y-extent
     private static final int IMAGE_HEIGHT = 360;
     private static final int IMAGE_WIDTH = 640;
- 
+
 
     @Override
     protected Node createSceneGraph(Entity entity) {
@@ -73,7 +72,7 @@ public class PostcardsCellRenderer extends BasicRenderer implements RenderUpdate
 
     }
 
-     private void addCameraModel(Node device, Entity entity) throws IOException {
+    private void addCameraModel(Node device, Entity entity) throws IOException {
         //Load the cameramodel and add it to the scenegraph
         LoaderManager manager = LoaderManager.getLoaderManager();
         URL url = AssetUtils.getAssetURL("wla://movierecorder/pwl_3d_videorecorder_009.dae/pwl_3d_videorecorder_009.dae.gz.dep", this.getCell());
@@ -87,10 +86,10 @@ public class PostcardsCellRenderer extends BasicRenderer implements RenderUpdate
         try {
             addCameraModel(device, entity);
         } catch (IOException ex) {
- //           rendererLogger.log(Level.SEVERE, "Failed to load camera model", ex);
+            //           rendererLogger.log(Level.SEVERE, "Failed to load camera model", ex);
         }
         entity.addEntity(createViewfinder(device));
-       // entity.addEntity(createPowerButton(device));
+        // entity.addEntity(createPowerButton(device));
     }
 
     private Entity createViewfinder(Node device) {
@@ -200,8 +199,8 @@ public class PostcardsCellRenderer extends BasicRenderer implements RenderUpdate
         }
     }
 
-       public void update(Object arg0) {
-            createBufferedImage(textureBuffer.getTextureData());
+    public void update(Object arg0) {
+        createBufferedImage(textureBuffer.getTextureData());
 //        captureImage = createBufferedImage(textureBuffer.getTextureData());
 //
 //         try {
@@ -214,7 +213,6 @@ public class PostcardsCellRenderer extends BasicRenderer implements RenderUpdate
 //            ex.printStackTrace();
 //            throw new RuntimeException("Cannot capture texture buffer image");
 //        }
-
 
 
     }
