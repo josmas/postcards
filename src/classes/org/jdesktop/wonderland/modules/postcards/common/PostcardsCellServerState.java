@@ -23,7 +23,7 @@ public class PostcardsCellServerState extends CellServerState {
 
 
     public String getServerClassName() {
-        return "org.jdesktop.wonderland.modules.postcards.PostcardsCellMO";
+        return "org.jdesktop.wonderland.modules.postcards.server.PostcardsCellMO";
     }
 
 }

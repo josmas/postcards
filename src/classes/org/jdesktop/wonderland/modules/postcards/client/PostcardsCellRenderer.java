@@ -10,19 +10,27 @@ import com.jme.math.Vector3f;
 import com.jme.scene.CameraNode;
 import com.jme.scene.Node;
 import com.jme.scene.Spatial;
+import com.jme.scene.TriMesh;
 import com.jme.scene.shape.Quad;
 import com.jme.scene.state.RenderState;
 import com.jme.scene.state.TextureState;
 
 import java.awt.*;
+import java.awt.event.ItemEvent;
+import java.awt.event.ItemListener;
+import java.awt.event.MouseEvent;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.nio.ByteBuffer;
 import java.util.Calendar;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.imageio.ImageIO;
 import javax.swing.*;
+import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeListener;
 
 import org.jdesktop.mtgame.CameraComponent;
 import org.jdesktop.mtgame.Entity;
@@ -33,15 +41,21 @@ import org.jdesktop.mtgame.TextureRenderBuffer;
 import org.jdesktop.mtgame.WorldManager;
 import org.jdesktop.wonderland.client.cell.Cell;
 import org.jdesktop.wonderland.client.cell.asset.AssetUtils;
+import org.jdesktop.wonderland.client.input.*;
 import org.jdesktop.wonderland.client.jme.ClientContextJME;
 import org.jdesktop.wonderland.client.jme.artimport.DeployedModel;
 import org.jdesktop.wonderland.client.jme.artimport.LoaderManager;
 import org.jdesktop.wonderland.client.jme.cellrenderer.BasicRenderer;
+import org.jdesktop.wonderland.client.jme.input.MouseButtonEvent3D;
+import org.jdesktop.wonderland.client.jme.input.MouseEvent3D;
+import org.jdesktop.wonderland.client.jme.utils.ScenegraphUtils;
 
 /**
  * @author spcworld
  */
 public class PostcardsCellRenderer extends BasicRenderer implements RenderUpdater {
+
+    private static final Logger rendererLogger = Logger.getLogger(PostcardsCellRenderer.class.getName());
 
     public PostcardsCellRenderer(Cell cell) {
         super(cell);
@@ -57,12 +71,14 @@ public class PostcardsCellRenderer extends BasicRenderer implements RenderUpdate
     private static final int IMAGE_HEIGHT = 360;
     private static final int IMAGE_WIDTH = 640;
 
+    private Spatial stillSpatial, stillSpatialOn;
+
 
     @Override
     protected Node createSceneGraph(Entity entity) {
 
         /* Create the scene graph object*/
-        Node root = new Node("Movie Recorder Root");
+        Node root = new Node("Postcards Root");
         attachRecordingDevice(root, entity);
         root.setModelBound(new BoundingBox());
         root.updateModelBound();
@@ -80,13 +96,29 @@ public class PostcardsCellRenderer extends BasicRenderer implements RenderUpdate
         Node cameraModel = dm.getModelLoader().loadDeployedModel(dm, entity);
         device.attachChild(cameraModel);
 
+        //Get the still buttons
+        stillSpatial = ScenegraphUtils.findNamedNode(cameraModel, "vrBtnStill_002-vrBtnStill");
+        stillSpatialOn = ScenegraphUtils.findNamedNode(cameraModel, "vrBtnStillOn-Geometry-vrBtnStillOn");
+        //locate "on" button so that it appears "pressed"
+        stillSpatialOn.setLocalTranslation(0, -0.015f, 0);
+        //"on" button is initially invisible
+        stillSpatialOn.setVisible(false);
+        //create a listener to control the appearance of the still buttons
+        ButtonModel stillButtonModel = ((PostcardsCell) cell).getStillButtonModel();
+        StillButtonListener buttonListener = new StillButtonListener();
+        stillButtonModel.addChangeListener(buttonListener);
+        stillButtonModel.addItemListener(buttonListener);
+
+        CameraListener listener = new CameraListener();
+        listener.addToEntity(entity);
+
     }
 
     private void attachRecordingDevice(Node device, Entity entity) {
         try {
             addCameraModel(device, entity);
         } catch (IOException ex) {
-            //           rendererLogger.log(Level.SEVERE, "Failed to load camera model", ex);
+            rendererLogger.log(Level.SEVERE, "Failed to load camera model", ex);
         }
         entity.addEntity(createViewfinder(device));
         // entity.addEntity(createPowerButton(device));
@@ -229,6 +261,122 @@ public class PostcardsCellRenderer extends BasicRenderer implements RenderUpdate
             if (captureImage != null) {
                 g.drawImage(captureImage, 0, 0, null);
             }
+        }
+    }
+
+
+    class CameraListener extends EventClassListener {
+
+        CameraListener() {
+            super();
+        }
+
+        @Override
+        public Class[] eventClassesToConsume() {
+            return new Class[]{MouseButtonEvent3D.class};
+        }
+
+        // Note: we don't override computeEvent because we don't do any computation in this listener.
+        @Override
+        public void commitEvent(org.jdesktop.wonderland.client.input.Event event) {
+            //rendererLogger.info("commit " + event + " for " + this);
+            MouseButtonEvent3D mbe = (MouseButtonEvent3D) event;
+            //ignore any mouse button that isn't the left one
+            if (mbe.getButton() != MouseEvent3D.ButtonId.BUTTON1) {
+                return;
+            }
+            TriMesh mesh = mbe.getPickDetails().getTriMesh();
+            //rendererLogger.info("mesh: " + mesh);
+            switch (mbe.getID()) {
+                case MouseEvent.MOUSE_PRESSED:
+                    mousePressed(mesh);
+                    break;
+                case MouseEvent.MOUSE_RELEASED:
+                    mouseReleased(mesh);
+                    break;
+                case MouseEvent.MOUSE_CLICKED:
+//                    mouseClicked(mesh);
+                    break;
+                default:
+                    rendererLogger.warning("Unhandled event: " + mbe);
+            }
+        }
+
+//        private void mouseClicked(TriMesh mesh) {
+//            if (mesh == videoSpatial || mesh == videoSpatialOn) {
+//                //rendererLogger.info("video button clicked");
+//                if (!((MovieRecorderCell) cell).getPowerButtonModel().isSelected()) {
+//                    //no power, can't record
+//                    Toolkit.getDefaultToolkit().beep();
+//                } else {
+//                    DefaultButtonModel videoButtonModel = ((MovieRecorderCell) cell).getVideoButtonModel();
+//                    if (videoButtonModel.isEnabled()) {
+//                        videoButtonModel.setSelected(!videoButtonModel.isSelected());
+//                    }
+//                }
+//            }
+//            if (mesh == powerButtonBox) {
+//                MovieRecorderCell mrCell = (MovieRecorderCell) cell;
+//                //rendererLogger.info("clicked power button");
+//                if (mrCell.isLocalRecording()) {
+//                    //Can't turn off the power when recording
+//                    Toolkit.getDefaultToolkit().beep();
+//                } else {
+//                    boolean power = mrCell.getPowerButtonModel().isSelected();
+//                    mrCell.getPowerButtonModel().setSelected(!power);
+//                }
+//            }
+//        }
+
+        private void mousePressed(TriMesh mesh) {
+            if (mesh == stillSpatial || mesh == stillSpatialOn) {
+//                if (!((PostcardsCell) cell).getPowerButtonModel().isSelected()) {
+//                    //no power, can't take a snapshot
+//                    Toolkit.getDefaultToolkit().beep();
+//                } else {
+                DefaultButtonModel stillButtonModel = ((PostcardsCell) cell).getStillButtonModel();
+                if (stillButtonModel.isEnabled()) {
+                    stillButtonModel.setPressed(true);
+                    stillButtonModel.setSelected(true);
+                }
+            }
+//            }
+        }
+
+        private void mouseReleased(TriMesh mesh) {
+            if (mesh == stillSpatial || mesh == stillSpatialOn) {
+                //rendererLogger.info("still button released");
+                DefaultButtonModel stillButtonModel = ((PostcardsCell) cell).getStillButtonModel();
+                if (stillButtonModel.isEnabled()) {
+                    stillButtonModel.setPressed(false);
+                    stillButtonModel.setSelected(false);
+                }
+            }
+        }
+    }
+
+    class StillButtonListener implements ChangeListener, ItemListener {
+
+        public void itemStateChanged(ItemEvent event) {
+            //rendererLogger.info("event: " + event);
+            if (event.getStateChange() == ItemEvent.SELECTED) {
+//                cameraShutter.play();
+            }
+        }
+
+        public void stateChanged(ChangeEvent event) {
+            //rendererLogger.info("event: " + event);
+            WorldManager wm = ClientContextJME.getWorldManager();
+            DefaultButtonModel stillButtonModel = ((PostcardsCell) cell).getStillButtonModel();
+            if (stillButtonModel.isPressed()) {
+                stillSpatial.setVisible(false);
+                stillSpatialOn.setVisible(true);
+            } else {
+                stillSpatial.setVisible(true);
+                stillSpatialOn.setVisible(false);
+            }
+            wm.addToUpdateList(stillSpatial);
+            wm.addToUpdateList(stillSpatialOn);
         }
     }
 }
