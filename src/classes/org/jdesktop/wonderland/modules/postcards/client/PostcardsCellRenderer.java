@@ -9,8 +9,12 @@ import com.jme.math.Quaternion;
 import com.jme.math.Vector3f;
 import com.jme.scene.CameraNode;
 import com.jme.scene.Node;
+import com.jme.scene.Spatial;
+import com.jme.scene.shape.Quad;
 import com.jme.scene.state.RenderState;
 import com.jme.scene.state.TextureState;
+
+import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -18,7 +22,8 @@ import java.net.URL;
 import java.nio.ByteBuffer;
 import java.util.Calendar;
 import javax.imageio.ImageIO;
-import javax.swing.SwingUtilities;
+import javax.swing.*;
+
 import org.jdesktop.mtgame.CameraComponent;
 import org.jdesktop.mtgame.Entity;
 import org.jdesktop.mtgame.RenderBuffer;
@@ -44,9 +49,14 @@ public class PostcardsCellRenderer extends BasicRenderer implements RenderUpdate
         super(cell);
     }
     private TextureRenderBuffer textureBuffer = null;
-    
- private int IMAGE_HEIGHT = 100;  
-   private int IMAGE_WIDTH = 100;
+    private CaptureComponent captureComponent = null;
+    private Node viewfinderNode;
+    private BufferedImage captureImage = null;
+
+    public static final float WIDTH = 1.6f; //x-extent
+    public static final float HEIGHT = 0.9f ; //y-extent
+    private static final int IMAGE_HEIGHT = 360;
+    private static final int IMAGE_WIDTH = 640;
  
 
     @Override
@@ -85,20 +95,20 @@ public class PostcardsCellRenderer extends BasicRenderer implements RenderUpdate
 
     private Entity createViewfinder(Node device) {
         WorldManager wm = ClientContextJME.getWorldManager();
-//        //Node for the viewfinder
-//        viewfinderNode = new Node("viewfinder");
-//        //Qhad to render the viewfinder
-//        Quad viewfinderQuad = new Quad("viewfinder", WIDTH, HEIGHT);
-//        viewfinderQuad.setLightCombineMode(LightCombineMode.Off);
-//        viewfinderQuad.updateRenderState();
-//        //Entity for the quad
-//        Entity viewfinderEntity = new Entity("viewfinder ");
-//        //Attach the quad to the node
-//        viewfinderNode.attachChild(viewfinderQuad);
-//        //Set the quad node position so that it is directly in front of the camera model
-//        //To give the appearance of an LCD panel
-//        viewfinderNode.setLocalTranslation(0.0f, -0.15f, -0.045f);
-//        //Create the texture buffer
+        //Node for the viewfinder
+        viewfinderNode = new Node("viewfinder");
+        //Qhad to render the viewfinder
+        Quad viewfinderQuad = new Quad("viewfinder", WIDTH, HEIGHT);
+        viewfinderQuad.setLightCombineMode(Spatial.LightCombineMode.Off);
+        viewfinderQuad.updateRenderState();
+        //Entity for the quad
+        Entity viewfinderEntity = new Entity("viewfinder ");
+        //Attach the quad to the node
+        viewfinderNode.attachChild(viewfinderQuad);
+        //Set the quad node position so that it is directly in front of the camera model
+        //To give the appearance of an LCD panel
+        viewfinderNode.setLocalTranslation(0.0f, -0.15f, -0.045f);
+        //Create the texture buffer
         textureBuffer = (TextureRenderBuffer) wm.getRenderManager().createRenderBuffer(RenderBuffer.Target.TEXTURE_2D, IMAGE_WIDTH, IMAGE_HEIGHT);
         textureBuffer.setIncludeOrtho((false));
         //Disable the viewfinder
@@ -149,6 +159,11 @@ public class PostcardsCellRenderer extends BasicRenderer implements RenderUpdate
 //        ((MovieRecorderCell) cell).getPowerButtonModel().addItemListener(powerButtonListener);
 
         return viewfinderEntity;
+    }
+
+    private void createCaptureComponent(int width, int height) {
+        captureComponent = new CaptureComponent();
+        captureComponent.setPreferredSize(new Dimension(width, height));
     }
 
     private BufferedImage createBufferedImage(ByteBuffer bb) {
@@ -202,5 +217,20 @@ public class PostcardsCellRenderer extends BasicRenderer implements RenderUpdate
 
 
 
+    }
+
+    public class CaptureComponent extends JComponent {
+        public CaptureComponent() {
+            setBorder(BorderFactory.createLineBorder(Color.black));
+        }
+
+        @Override
+        public void paintComponent(Graphics g) {
+            super.paintComponent(g);
+            g.setColor(Color.BLACK);
+            if (captureImage != null) {
+                g.drawImage(captureImage, 0, 0, null);
+            }
+        }
     }
 }

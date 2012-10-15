@@ -8,6 +8,7 @@ package org.jdesktop.wonderland.modules.postcards.client;
 import org.jdesktop.mtgame.processor.WorkProcessor.WorkCommit;
 import org.jdesktop.wonderland.client.cell.Cell;
 import org.jdesktop.wonderland.client.cell.CellCache;
+import org.jdesktop.wonderland.client.cell.CellRenderer;
 import org.jdesktop.wonderland.client.jme.SceneWorker;
 import org.jdesktop.wonderland.common.cell.CellID;
 
@@ -25,5 +26,16 @@ public class PostcardsCell extends Cell {
                 ((PostcardsCellRenderer) renderer).captureImage("");
             }
         });
+    }
+
+    @Override
+    protected CellRenderer createCellRenderer(RendererType rendererType) {
+        if (rendererType == RendererType.RENDERER_JME) {
+            this.renderer = new PostcardsCellRenderer(this);
+            return this.renderer;
+        }
+        else {
+            return super.createCellRenderer(rendererType);
+        }
     }
 }
