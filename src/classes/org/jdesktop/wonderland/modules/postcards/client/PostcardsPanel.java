@@ -11,9 +11,14 @@
 
 package org.jdesktop.wonderland.modules.postcards.client;
 
+import java.awt.Color;
+import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
 import java.awt.image.RescaleOp;
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
+import javax.swing.SwingUtilities;
 
 /**
  *
@@ -21,6 +26,7 @@ import java.awt.image.RescaleOp;
  */
 public class PostcardsPanel extends javax.swing.JPanel {
 
+    private BufferedImage viewImage= null;
     /** Creates new form PostcardsPanel */
     //TODO if we start the HUD from the Cell we need to pass it here
     public PostcardsPanel() {
@@ -59,6 +65,19 @@ public class PostcardsPanel extends javax.swing.JPanel {
         return combinedImage;
     }
 
+    public void setCaptureImage(BufferedImage image) {
+        viewImage = image;
+        SwingUtilities.invokeLater(new Runnable() {
+
+            public void run() {
+
+                Graphics g = viewImage.getGraphics();
+                viewPanel.paint(g);
+                viewPanel.repaint();
+            }
+        });
+    }
+
     /** This method is called from within the constructor to
      * initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is
@@ -69,7 +88,16 @@ public class PostcardsPanel extends javax.swing.JPanel {
     private void initComponents() {
 
         jTabbedPane1 = new javax.swing.JTabbedPane();
-        shootPanel = new javax.swing.JPanel();
+        shootPanel = new javax.swing.JPanel(){
+            @Override
+            public void paintComponent(Graphics g){
+                super.paintComponent(g);
+                if (viewImage != null){
+                    g.setColor(Color.BLACK);
+                    g.drawImage(viewImage, 0, 0, null);
+                }
+            }
+        };
         viewPanel = new javax.swing.JPanel();
         saveButton = new javax.swing.JButton();
         annotateButton = new javax.swing.JButton();
@@ -89,7 +117,7 @@ public class PostcardsPanel extends javax.swing.JPanel {
         );
         shootPanelLayout.setVerticalGroup(
             shootPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 147, Short.MAX_VALUE)
+            .addGap(0, 148, Short.MAX_VALUE)
         );
 
         jTabbedPane1.addTab("Shoot", shootPanel);
@@ -102,7 +130,7 @@ public class PostcardsPanel extends javax.swing.JPanel {
         );
         viewPanelLayout.setVerticalGroup(
             viewPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 147, Short.MAX_VALUE)
+            .addGap(0, 148, Short.MAX_VALUE)
         );
 
         jTabbedPane1.addTab("View", viewPanel);
@@ -151,17 +179,17 @@ public class PostcardsPanel extends javax.swing.JPanel {
                         .addComponent(shareWithAll))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(annotateButton, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
                         .addComponent(saveButton, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(sendToButton))
-                    .addComponent(postcardMessage)
-                    .addComponent(postcardName))
+                    .addComponent(postcardMessage, javax.swing.GroupLayout.DEFAULT_SIZE, 428, Short.MAX_VALUE)
+                    .addComponent(postcardName, javax.swing.GroupLayout.DEFAULT_SIZE, 428, Short.MAX_VALUE))
                 .addGap(44, 44, 44))
             .addGroup(layout.createSequentialGroup()
                 .addGap(183, 183, 183)
                 .addComponent(captureButton)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(227, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

@@ -25,6 +25,7 @@ public class PostcardsCell extends Cell {
 
     private PostcardsCellRenderer renderer;
     private DefaultButtonModel stillButtonModel;
+    private PostcardsHUD hud;
 
     public PostcardsCell(CellID cellID, CellCache cellCache) {
         super(cellID, cellCache);
@@ -38,7 +39,7 @@ public class PostcardsCell extends Cell {
         SceneWorker.addWorker(new WorkCommit() {
 
             public void commit() {
-                ((PostcardsCellRenderer) renderer).captureImage(getDefaultStillCaptureDirectory());
+                ((PostcardsCellRenderer) renderer).captureImage(getDefaultStillCaptureDirectory(), hud);
             }
         });
     }
@@ -100,5 +101,14 @@ public class PostcardsCell extends Cell {
         //Otherwise
         return home;
     }
+
+    public PostcardsHUD getHud() {
+        return hud;
+    }
+
+    public void setHud(PostcardsHUD hud) {
+        this.hud = hud;
+    }
+
 
 }

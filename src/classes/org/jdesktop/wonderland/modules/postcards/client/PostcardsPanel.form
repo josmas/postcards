@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8" ?>
+<?xml version="1.1" encoding="UTF-8" ?>
 
 <Form version="1.3" maxVersion="1.7" type="org.netbeans.modules.form.forminfo.JPanelFormInfo">
   <AuxValues>
@@ -29,20 +29,20 @@
                   </Group>
                   <Group type="102" alignment="1" attributes="1">
                       <Component id="annotateButton" min="-2" pref="117" max="-2" attributes="0"/>
-                      <EmptySpace max="32767" attributes="0"/>
+                      <EmptySpace pref="34" max="32767" attributes="0"/>
                       <Component id="saveButton" min="-2" pref="156" max="-2" attributes="1"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="sendToButton" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <Component id="postcardMessage" alignment="0" max="32767" attributes="1"/>
-                  <Component id="postcardName" alignment="0" max="32767" attributes="1"/>
+                  <Component id="postcardMessage" alignment="0" pref="428" max="32767" attributes="1"/>
+                  <Component id="postcardName" alignment="0" pref="428" max="32767" attributes="1"/>
               </Group>
               <EmptySpace min="-2" pref="44" max="-2" attributes="0"/>
           </Group>
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="183" max="-2" attributes="0"/>
               <Component id="captureButton" min="-2" max="-2" attributes="0"/>
-              <EmptySpace max="32767" attributes="0"/>
+              <EmptySpace pref="227" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -80,6 +80,9 @@
       <Layout class="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout"/>
       <SubComponents>
         <Container class="javax.swing.JPanel" name="shootPanel">
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new javax.swing.JPanel(){&#xa;    @Override&#xa;    public void paintComponent(Graphics g){&#xa;        super.paintComponent(g);&#xa;        if (viewImage != null){&#xa;            g.setColor(Color.BLACK);&#xa;            g.drawImage(viewImage, 0, 0, null);&#xa;        }&#xa;    }&#xa;}"/>
+          </AuxValues>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
               <JTabbedPaneConstraints tabName="Shoot">
@@ -96,7 +99,7 @@
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <EmptySpace min="0" pref="147" max="32767" attributes="0"/>
+                  <EmptySpace min="0" pref="148" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
           </Layout>
@@ -118,7 +121,7 @@
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <EmptySpace min="0" pref="147" max="32767" attributes="0"/>
+                  <EmptySpace min="0" pref="148" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
           </Layout>
