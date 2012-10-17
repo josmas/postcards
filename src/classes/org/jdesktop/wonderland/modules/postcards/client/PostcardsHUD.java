@@ -46,6 +46,7 @@ public class PostcardsHUD {
             CellID cellID = CellUtils.createCell(new PostcardsCellServerState());
             CellCache cache = ClientContextJME.getCellCache(LoginManager.getPrimary().getPrimarySession());
              postcardCell = (PostcardsCell) cache.getCell(cellID);
+             postcardCell.setHud(this);
         } catch (CellCreationException ex) {
             Logger.getLogger(PostcardsHUD.class.getName()).log(Level.SEVERE, "could not create cell", ex);
         }
