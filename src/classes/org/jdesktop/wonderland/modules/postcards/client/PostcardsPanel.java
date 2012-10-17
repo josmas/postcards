@@ -50,12 +50,11 @@ public class PostcardsPanel extends javax.swing.JPanel {
 
 
         // Write into a file 
-   /*     String type = "png";
+   /*   String type = "png";
         File combinedImageFile = new File("combined.".concat(type));
         System.out.println("FILE created :: " + combinedImageFile.getAbsolutePath());
         ImageIO.write(combinedImage, type, combinedImageFile);
    */
-
 
         return combinedImage;
     }
