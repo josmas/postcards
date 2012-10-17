@@ -42,6 +42,7 @@ public class PostcardsHUDPlugin extends BaseClientPlugin {
         });
 
         super.initialize(loginInfo);
+        postcardsHUD.getPostcardCell();
     }
 
     /**
