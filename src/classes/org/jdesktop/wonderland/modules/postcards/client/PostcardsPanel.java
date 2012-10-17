@@ -11,6 +11,10 @@
 
 package org.jdesktop.wonderland.modules.postcards.client;
 
+import java.awt.Graphics2D;
+import java.awt.image.BufferedImage;
+import java.awt.image.RescaleOp;
+
 /**
  *
  * @author spcworld
@@ -21,6 +25,39 @@ public class PostcardsPanel extends javax.swing.JPanel {
     //TODO if we start the HUD from the Cell we need to pass it here
     public PostcardsPanel() {
         initComponents();
+    }
+    
+       /**
+     * Merges two images to get an overlay effect
+     */
+    //TODO: Images should be already in a correct size, or should we add an additional function here ?
+    public static BufferedImage mergeImages(BufferedImage original, BufferedImage overlay, int posx, int posy)  {
+
+        int w = original.getWidth();
+        int h = original.getHeight();
+
+        //TODO: variable opaque?
+        float[] scales = {1f, 1f, 1f, 0.8f};
+        float[] offsets = new float[4];
+        RescaleOp rop = new RescaleOp(scales, offsets, null);
+
+        BufferedImage combinedImage = new BufferedImage(w, h, BufferedImage.TYPE_INT_ARGB);
+        Graphics2D g2d = (Graphics2D) combinedImage.getGraphics();
+        g2d.drawImage(original, 0, 0, null);
+
+        g2d.drawImage(overlay, rop, posx, posy);
+        g2d.dispose();
+
+
+        // Write into a file 
+   /*     String type = "png";
+        File combinedImageFile = new File("combined.".concat(type));
+        System.out.println("FILE created :: " + combinedImageFile.getAbsolutePath());
+        ImageIO.write(combinedImage, type, combinedImageFile);
+   */
+
+
+        return combinedImage;
     }
 
     /** This method is called from within the constructor to
@@ -53,7 +90,7 @@ public class PostcardsPanel extends javax.swing.JPanel {
         );
         shootPanelLayout.setVerticalGroup(
             shootPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 148, Short.MAX_VALUE)
+            .addGap(0, 147, Short.MAX_VALUE)
         );
 
         jTabbedPane1.addTab("Shoot", shootPanel);
@@ -66,7 +103,7 @@ public class PostcardsPanel extends javax.swing.JPanel {
         );
         viewPanelLayout.setVerticalGroup(
             viewPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 148, Short.MAX_VALUE)
+            .addGap(0, 147, Short.MAX_VALUE)
         );
 
         jTabbedPane1.addTab("View", viewPanel);
@@ -74,6 +111,11 @@ public class PostcardsPanel extends javax.swing.JPanel {
         saveButton.setText("Save");
 
         annotateButton.setText("Annotate");
+        annotateButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                annotateButtonActionPerformed(evt);
+            }
+        });
 
         sendToButton.setText("Send to ..");
         sendToButton.addActionListener(new java.awt.event.ActionListener() {
@@ -101,7 +143,7 @@ public class PostcardsPanel extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGap(29, 29, 29)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jTabbedPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 428, Short.MAX_VALUE)
+                    .addComponent(jTabbedPane1, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(addBannerCheckBox)
                         .addGap(18, 18, 18)
@@ -110,17 +152,17 @@ public class PostcardsPanel extends javax.swing.JPanel {
                         .addComponent(shareWithAll))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(annotateButton, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(saveButton, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(sendToButton))
-                    .addComponent(postcardMessage, javax.swing.GroupLayout.DEFAULT_SIZE, 428, Short.MAX_VALUE)
-                    .addComponent(postcardName, javax.swing.GroupLayout.DEFAULT_SIZE, 428, Short.MAX_VALUE))
+                    .addComponent(postcardMessage)
+                    .addComponent(postcardName))
                 .addGap(44, 44, 44))
             .addGroup(layout.createSequentialGroup()
                 .addGap(183, 183, 183)
                 .addComponent(captureButton)
-                .addContainerGap(227, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -150,6 +192,13 @@ public class PostcardsPanel extends javax.swing.JPanel {
     private void sendToButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sendToButtonActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_sendToButtonActionPerformed
+
+    private void annotateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_annotateButtonActionPerformed
+        // TODO add your handling code here:
+        if(addBannerCheckBox.isSelected()){
+           // mergeImages(screenshot, overlay, 40, 40)
+        }
+    }//GEN-LAST:event_annotateButtonActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
