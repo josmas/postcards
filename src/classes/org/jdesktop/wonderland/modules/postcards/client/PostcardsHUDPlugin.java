@@ -35,6 +35,7 @@ public class PostcardsHUDPlugin extends BaseClientPlugin {
                 postcardsHUDMI.setSelected(postcardsHUDEnabled);
                 if (postcardsHUD == null ) {
                     postcardsHUD = new PostcardsHUD();
+                    postcardsHUD.createPostCardCell();
                     postcardsHUD.getPostcardCell();
                 }
                 else

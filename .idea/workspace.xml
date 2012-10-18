@@ -1,7 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="56a76d21-bdb1-4269-8664-2446d55aab20" name="Default" comment="" />
+    <list default="true" id="56a76d21-bdb1-4269-8664-2446d55aab20" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/classes/org/jdesktop/wonderland/modules/postcards/client/PostcardsComponent.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/classes/org/jdesktop/wonderland/modules/postcards/server/PostcardsCellComponentMO.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nbproject/nb.properties" afterPath="$PROJECT_DIR$/nbproject/nb.properties" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/classes/org/jdesktop/wonderland/modules/postcards/client/PostcardsCell.java" afterPath="$PROJECT_DIR$/src/classes/org/jdesktop/wonderland/modules/postcards/client/PostcardsCell.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/classes/org/jdesktop/wonderland/modules/postcards/client/PostcardsCellRenderer.java" afterPath="$PROJECT_DIR$/src/classes/org/jdesktop/wonderland/modules/postcards/client/PostcardsCellRenderer.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/classes/org/jdesktop/wonderland/modules/postcards/client/PostcardsHUD.java" afterPath="$PROJECT_DIR$/src/classes/org/jdesktop/wonderland/modules/postcards/client/PostcardsHUD.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/classes/org/jdesktop/wonderland/modules/postcards/client/PostcardsHUDPlugin.java" afterPath="$PROJECT_DIR$/src/classes/org/jdesktop/wonderland/modules/postcards/client/PostcardsHUDPlugin.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/classes/org/jdesktop/wonderland/modules/postcards/client/PostcardsPanel.java" afterPath="$PROJECT_DIR$/src/classes/org/jdesktop/wonderland/modules/postcards/client/PostcardsPanel.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/classes/org/jdesktop/wonderland/modules/postcards/common/PostcardsCellServerState.java" afterPath="$PROJECT_DIR$/src/classes/org/jdesktop/wonderland/modules/postcards/common/PostcardsCellServerState.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/classes/org/jdesktop/wonderland/modules/postcards/server/PostcardsCellMO.java" afterPath="$PROJECT_DIR$/src/classes/org/jdesktop/wonderland/modules/postcards/server/PostcardsCellMO.java" />
+    </list>
     <ignored path="postcards.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -61,29 +73,11 @@
       <file leaf-file-name="PostcardsCell.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/classes/org/jdesktop/wonderland/modules/postcards/client/PostcardsCell.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="40" column="59" selection-start="1425" selection-end="1425" vertical-scroll-proportion="0.0">
+            <state line="42" column="55" selection-start="1508" selection-end="1509" vertical-scroll-proportion="-18.307692">
               <folding>
-                <element signature="e#1311#1489#0" expanded="true" />
-                <element signature="e#1478#1479#0" expanded="true" />
+                <element signature="e#1399#1582#0" expanded="true" />
+                <element signature="e#1571#1572#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="PostcardsCellFactory.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/classes/org/jdesktop/wonderland/modules/postcards/client/PostcardsCellFactory.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="28" column="0" selection-start="789" selection-end="945" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="PostcardsPanel.java" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/classes/org/jdesktop/wonderland/modules/postcards/client/PostcardsPanel.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="39" column="73" selection-start="1165" selection-end="1165" vertical-scroll-proportion="0.7044199">
-              <folding />
             </state>
           </provider>
         </entry>
@@ -91,25 +85,33 @@
       <file leaf-file-name="PostcardsHUD.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/classes/org/jdesktop/wonderland/modules/postcards/client/PostcardsHUD.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="15" column="13" selection-start="451" selection-end="451" vertical-scroll-proportion="0.0">
-              <folding />
+            <state line="84" column="51" selection-start="2839" selection-end="2839" vertical-scroll-proportion="-21.76">
+              <folding>
+                <element signature="e#4175#4292#0" expanded="true" />
+                <element signature="e#4281#4282#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="PostcardsHUDPlugin.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/classes/org/jdesktop/wonderland/modules/postcards/client/PostcardsHUDPlugin.java">
+      <file leaf-file-name="PostcardsPanel.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/classes/org/jdesktop/wonderland/modules/postcards/client/PostcardsPanel.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="16" column="13" selection-start="484" selection-end="484" vertical-scroll-proportion="0.0">
-              <folding />
+            <state line="77" column="29" selection-start="2359" selection-end="2359" vertical-scroll-proportion="0.0">
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#2225#2426#0" expanded="true" />
+                <element signature="e#2415#2416#0" expanded="true" />
+                <element signature="e#2654#2684#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="PostcardsCellMO.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/classes/org/jdesktop/wonderland/modules/postcards/server/PostcardsCellMO.java">
+      <file leaf-file-name="PostcardsCellRenderer.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/classes/org/jdesktop/wonderland/modules/postcards/client/PostcardsCellRenderer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="15" column="13" selection-start="383" selection-end="383" vertical-scroll-proportion="0.0">
+            <state line="224" column="22" selection-start="9433" selection-end="9433" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -118,25 +120,25 @@
       <file leaf-file-name="PostcardsCellServerState.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/classes/org/jdesktop/wonderland/modules/postcards/common/PostcardsCellServerState.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="23" column="101" selection-start="634" selection-end="634" vertical-scroll-proportion="0.0">
+            <state line="26" column="5" selection-start="786" selection-end="786" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Bundle.properties" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/classes/org/jdesktop/wonderland/modules/postcards/client/resources/Bundle.properties">
+      <file leaf-file-name="PostcardsCellMO.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/classes/org/jdesktop/wonderland/modules/postcards/server/PostcardsCellMO.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="4" column="25" selection-start="113" selection-end="113" vertical-scroll-proportion="0.0">
+            <state line="25" column="0" selection-start="890" selection-end="890" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="PostcardsCellRenderer.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/classes/org/jdesktop/wonderland/modules/postcards/client/PostcardsCellRenderer.java">
+      <file leaf-file-name="PostcardsCellComponentMO.java" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/classes/org/jdesktop/wonderland/modules/postcards/server/PostcardsCellComponentMO.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="232" column="88" selection-start="9741" selection-end="9741" vertical-scroll-proportion="15.153846">
+            <state line="12" column="37" selection-start="336" selection-end="360" vertical-scroll-proportion="0.3469388">
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -144,10 +146,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ImageIO.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="jar://C:/Program Files (x86)/Java/jdk1.6.0_22/src.zip!/javax/imageio/ImageIO.java">
+      <file leaf-file-name="PostcardsComponent.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/classes/org/jdesktop/wonderland/modules/postcards/client/PostcardsComponent.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="1504" column="26" selection-start="54129" selection-end="54129" vertical-scroll-proportion="0.0">
+            <state line="14" column="4" selection-start="380" selection-end="380" vertical-scroll-proportion="0.0">
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PostcardsHUDPlugin.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/classes/org/jdesktop/wonderland/modules/postcards/client/PostcardsHUDPlugin.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="38" column="41" selection-start="1411" selection-end="1411" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -168,17 +181,23 @@
       <list>
         <option value="$PROJECT_DIR$/src/classes/org/jdesktop/wonderland/modules/postcards/client/PostcardsCellFactory.java" />
         <option value="$PROJECT_DIR$/build.xml" />
-        <option value="$PROJECT_DIR$/src/classes/org/jdesktop/wonderland/modules/postcards/client/PostcardsCellRenderer.java" />
-        <option value="$PROJECT_DIR$/src/classes/org/jdesktop/wonderland/modules/postcards/common/PostcardsCellServerState.java" />
         <option value="$PROJECT_DIR$/src/classes/org/jdesktop/wonderland/modules/postcards/client/resources/Bundle.properties" />
         <option value="$PROJECT_DIR$/src/classes/org/jdesktop/wonderland/modules/postcards/client/PostcardsCell.java" />
+        <option value="$PROJECT_DIR$/src/classes/org/jdesktop/wonderland/modules/postcards/common/PostcardsCellServerState.java" />
+        <option value="$PROJECT_DIR$/src/classes/org/jdesktop/wonderland/modules/postcards/client/PostcardsComponent.java" />
+        <option value="$PROJECT_DIR$/src/classes/org/jdesktop/wonderland/modules/postcards/server/PostcardsCellComponentMO.java" />
+        <option value="$PROJECT_DIR$/src/classes/org/jdesktop/wonderland/modules/postcards/server/PostcardsCellMO.java" />
+        <option value="$PROJECT_DIR$/src/classes/org/jdesktop/wonderland/modules/postcards/client/PostcardsHUDPlugin.java" />
+        <option value="$PROJECT_DIR$/src/classes/org/jdesktop/wonderland/modules/postcards/client/PostcardsCellRenderer.java" />
         <option value="$PROJECT_DIR$/src/classes/org/jdesktop/wonderland/modules/postcards/client/PostcardsPanel.java" />
+        <option value="$PROJECT_DIR$/src/classes/org/jdesktop/wonderland/modules/postcards/client/PostcardsHUD.java" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="width" value="1200" />
-    <option name="height" value="1435" />
+    <option name="y" value="175" />
+    <option name="width" value="1150" />
+    <option name="height" value="1363" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <OptionsSetting value="true" id="Add" />
@@ -332,6 +351,7 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
       <pane id="PackagesPane">
         <subPane>
           <PATH>
@@ -346,12 +366,12 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="GoToFile.includeJavaFiles" value="false" />
     <property name="project.structure.last.edited" value="Modules" />
+    <property name="OverrideImplement.combined" value="true" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="MemberChooser.sorted" value="false" />
@@ -473,24 +493,24 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="1200" height="1435" extended-state="0" />
+    <frame x="0" y="175" width="1150" height="1363" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32954547" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.15339391" sideWeight="0.5577651" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32946634" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.07004608" sideWeight="0.5768911" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3662745" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4420904" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.4231089" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.34537444" sideWeight="0.63372546" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3658986" sideWeight="0.5768911" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -568,81 +588,122 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/build.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="32" column="30" selection-start="1775" selection-end="1775" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/classes/org/jdesktop/wonderland/modules/postcards/server/PostcardsCellMO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="13" selection-start="383" selection-end="383" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/classes/org/jdesktop/wonderland/modules/postcards/common/PostcardsCellServerState.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="23" column="101" selection-start="634" selection-end="634" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/classes/org/jdesktop/wonderland/modules/postcards/client/PostcardsHUDPlugin.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="13" selection-start="484" selection-end="484" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="32" column="30" selection-start="1775" selection-end="1775" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/classes/org/jdesktop/wonderland/modules/postcards/client/resources/Bundle.properties">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="25" selection-start="113" selection-end="113" vertical-scroll-proportion="0.0">
+        <state line="4" column="25" selection-start="113" selection-end="113" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files (x86)/Java/jdk1.6.0_22/src.zip!/javax/imageio/ImageIO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="1504" column="26" selection-start="54129" selection-end="54129" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/../../../wonderland/core/build/lib/wonderland-client.jar!/org/jdesktop/wonderland/client/cell/utils/CellUtils.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="5" column="13" selection-start="179" selection-end="179" vertical-scroll-proportion="-2.72">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/classes/org/jdesktop/wonderland/modules/postcards/client/PostcardsCellFactory.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="28" column="0" selection-start="789" selection-end="945" vertical-scroll-proportion="0.0">
+        <state line="33" column="47" selection-start="1032" selection-end="1032" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/classes/org/jdesktop/wonderland/modules/postcards/client/PostcardsCell.java">
+    <entry file="jar://C:/Program Files (x86)/Java/jdk1.6.0_22/src.zip!/java/lang/Object.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="40" column="59" selection-start="1425" selection-end="1425" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="e#1311#1489#0" expanded="true" />
-            <element signature="e#1478#1479#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files (x86)/Java/jdk1.6.0_22/src.zip!/javax/imageio/ImageIO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="1504" column="26" selection-start="54129" selection-end="54129" vertical-scroll-proportion="0.0">
+        <state line="364" column="29" selection-start="17894" selection-end="17894" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/classes/org/jdesktop/wonderland/modules/postcards/client/PostcardsCellRenderer.java">
+    <entry file="file://$PROJECT_DIR$/src/classes/org/jdesktop/wonderland/modules/postcards/common/PostcardsCellServerState.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="232" column="88" selection-start="9741" selection-end="9741" vertical-scroll-proportion="15.153846">
+        <state line="26" column="5" selection-start="786" selection-end="786" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/classes/org/jdesktop/wonderland/modules/postcards/server/PostcardsCellMO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="25" column="0" selection-start="890" selection-end="890" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/classes/org/jdesktop/wonderland/modules/postcards/client/PostcardsComponent.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="14" column="4" selection-start="380" selection-end="380" vertical-scroll-proportion="0.0">
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/classes/org/jdesktop/wonderland/modules/postcards/client/PostcardsHUD.java">
+    <entry file="file://$PROJECT_DIR$/src/classes/org/jdesktop/wonderland/modules/postcards/client/PostcardsCell.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="13" selection-start="451" selection-end="451" vertical-scroll-proportion="0.0">
+        <state line="42" column="55" selection-start="1508" selection-end="1509" vertical-scroll-proportion="-18.307692">
+          <folding>
+            <element signature="e#1399#1582#0" expanded="true" />
+            <element signature="e#1571#1572#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files (x86)/Java/jdk1.6.0_22/src.zip!/javax/swing/JComponent.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="966" column="16" selection-start="36990" selection-end="36990" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/classes/org/jdesktop/wonderland/modules/postcards/client/PostcardsPanel.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="39" column="73" selection-start="1165" selection-end="1165" vertical-scroll-proportion="0.7044199">
+        <state line="77" column="29" selection-start="2359" selection-end="2359" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#2225#2426#0" expanded="true" />
+            <element signature="e#2415#2416#0" expanded="true" />
+            <element signature="e#2654#2684#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/classes/org/jdesktop/wonderland/modules/postcards/client/PostcardsCellRenderer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="224" column="22" selection-start="9433" selection-end="9433" vertical-scroll-proportion="0.0">
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/classes/org/jdesktop/wonderland/modules/postcards/client/PostcardsHUDPlugin.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="38" column="41" selection-start="1411" selection-end="1411" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/classes/org/jdesktop/wonderland/modules/postcards/client/PostcardsHUD.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="84" column="51" selection-start="2839" selection-end="2839" vertical-scroll-proportion="-21.76">
+          <folding>
+            <element signature="e#4175#4292#0" expanded="true" />
+            <element signature="e#4281#4282#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/classes/org/jdesktop/wonderland/modules/postcards/server/PostcardsCellComponentMO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="12" column="37" selection-start="336" selection-end="360" vertical-scroll-proportion="0.3469388">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

@@ -15,13 +15,12 @@ import javax.xml.bind.annotation.XmlRootElement;
 /**
  * @author spcworld
  */
-@XmlRootElement(name = "postcards-cell")
-
-@XmlAccessorType(XmlAccessType.FIELD)
-@ServerState
+@XmlRootElement(name = "cell")
 public class PostcardsCellServerState extends CellServerState {
-
-
+    public PostcardsCellServerState() {
+        setName("test");
+    }
+    @Override
     public String getServerClassName() {
         return "org.jdesktop.wonderland.modules.postcards.server.PostcardsCellMO";
     }

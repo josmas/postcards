@@ -1,14 +1,18 @@
-package  org.jdesktop.wonderland.modules.postcards.client;
+package org.jdesktop.wonderland.modules.postcards.client;
 
 import java.awt.Panel;
 import java.awt.image.BufferedImage;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
+
+import org.jdesktop.wonderland.client.ClientContext;
 import org.jdesktop.wonderland.client.cell.Cell;
 import org.jdesktop.wonderland.client.cell.CellCache;
+import org.jdesktop.wonderland.client.cell.CellCacheBasicImpl;
 import org.jdesktop.wonderland.client.cell.utils.CellCreationException;
 import org.jdesktop.wonderland.client.cell.utils.CellUtils;
 import org.jdesktop.wonderland.client.hud.CompassLayout.Layout;
@@ -21,18 +25,18 @@ import org.jdesktop.wonderland.common.cell.CellID;
 import org.jdesktop.wonderland.modules.postcards.common.PostcardsCellServerState;
 
 /**
- *
  * @author jos
  */
 public class PostcardsHUD {
 
     private static final Logger logger = Logger.getLogger(PostcardsHUD.class.getName());
-    
+
     private HUD mainHUD;
     private HUDComponent sampleHud;
     private PostcardsCell postcardCell;
     private PostcardsPanel postcardsPanel;
-    
+    private CellID postcardCellID = null;
+
     private JButton oneButton;
 
     /**
@@ -45,29 +49,51 @@ public class PostcardsHUD {
 
     }
 
-    PostcardsCell getPostcardCell() {
+    void createPostCardCell() {
         try {
-            // create postcard cell
-            CellID cellID = CellUtils.createCell(new PostcardsCellServerState());
-            CellCache cache = ClientContextJME.getCellCache(LoginManager.getPrimary().getPrimarySession());
-            postcardCell = (PostcardsCell) cache.getCell(cellID);
-            postcardCell.setHud(this);
-        } catch (CellCreationException ex) {
-            Logger.getLogger(PostcardsHUD.class.getName()).log(Level.SEVERE, "could not create cell", ex);
+            postcardCellID = CellUtils.createCell(new PostcardsCellServerState());
+        } catch (CellCreationException e) {
+            logger.severe("could not create cell " + e);
         }
-        return postcardCell;
 
+    }
+
+    PostcardsCell getPostcardCell() {
+        if (postcardCell != null) {
+            return postcardCell;
+        }
+
+        for (int i = 0; i < 20; i++) {
+            try {
+                Thread.currentThread().sleep(100);
+            } catch (InterruptedException e) {
+                e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
+            }
+            CellCacheBasicImpl cache = (CellCacheBasicImpl) ClientContext.getCellCache(LoginManager.getPrimary().getPrimarySession());
+
+            postcardCell = (PostcardsCell) cache.getCell(postcardCellID);
+            if (postcardCell != null) {
+                postcardCell.setHud(this);
+                return postcardCell;
+            }
+
+            return postcardCell;
+
+        }
+        logger.severe("unable to locate postcard cell in 2 secs");
+        return null;
     }
 
 
     private void displayHud() {
-        postcardsPanel= createPanelForHUD();
+        postcardsPanel = createPanelForHUD();
         createHUDComponent();
         setHudComponentVisible(true);
     }
 
     /**
      * Creates a JPanel which will contain the elements to be shown in the HUD.
+     *
      * @return panelForHUD
      */
     private PostcardsPanel createPanelForHUD() {
@@ -98,6 +124,7 @@ public class PostcardsHUD {
 
     /**
      * Changes the visibility of the HUD according to the boolean passed.
+     *
      * @param show
      */
     public void setHudComponentVisible(final boolean show) {
@@ -112,6 +139,6 @@ public class PostcardsHUD {
 
     void setCaptureImage(BufferedImage outputImage) {
         postcardsPanel.setCaptureImage(outputImage);
-        
+
     }
 }

@@ -29,6 +29,7 @@ public class PostcardsCell extends Cell {
 
     public PostcardsCell(CellID cellID, CellCache cellCache) {
         super(cellID, cellCache);
+        logger.severe("is null? " + (cellCache == null));
         stillButtonModel = new DefaultButtonModel();
         stillButtonModel.setSelected(false);
         stillButtonModel.setEnabled(true);

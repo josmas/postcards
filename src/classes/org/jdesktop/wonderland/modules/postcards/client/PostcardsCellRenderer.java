@@ -223,15 +223,15 @@ public class PostcardsCellRenderer extends BasicRenderer implements RenderUpdate
         // get HUD, create if necessary
         // copy to HUD window
         hud.setCaptureImage (outputImage);
-        Calendar calendar = Calendar.getInstance();
-        String imageFilename = "Wonderland.jpg";
-        try {
-            File outputFile = new File(stillCaptureDirectory + File.separator + imageFilename);
-            ImageIO.write(outputImage, "jpg", outputFile);
-        } catch (IOException e) {
-            System.err.println("I/O exception in update: " + e);
-            e.printStackTrace();
-        }
+//        Calendar calendar = Calendar.getInstance();
+//        String imageFilename = "Wonderland.jpg";
+//        try {
+//            File outputFile = new File(stillCaptureDirectory + File.separator + imageFilename);
+//            ImageIO.write(outputImage, "jpg", outputFile);
+//        } catch (IOException e) {
+//            System.err.println("I/O exception in update: " + e);
+//            e.printStackTrace();
+//        }
     }
 
     public void update(Object arg0) {

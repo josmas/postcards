@@ -16,6 +16,7 @@ import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
 import java.awt.image.RescaleOp;
+import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.SwingUtilities;
@@ -25,6 +26,7 @@ import javax.swing.SwingUtilities;
  * @author spcworld
  */
 public class PostcardsPanel extends javax.swing.JPanel {
+    private static final Logger logger = Logger.getLogger(PostcardsPanel.class.getName());
 
     private BufferedImage viewImage= null;
     /** Creates new form PostcardsPanel */
@@ -66,6 +68,7 @@ public class PostcardsPanel extends javax.swing.JPanel {
     }
 
     public void setCaptureImage(BufferedImage image) {
+        logger.severe("have image " + (image != null));
         viewImage = image;
         SwingUtilities.invokeLater(new Runnable() {
 
