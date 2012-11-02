@@ -63,7 +63,7 @@ public class PostcardsHUD {
             return postcardCell;
         }
 
-        for (int i = 0; i < 20; i++) {
+        for (int i = 0; i < 100; i++) {
             try {
                 Thread.currentThread().sleep(100);
             } catch (InterruptedException e) {
@@ -74,13 +74,14 @@ public class PostcardsHUD {
             postcardCell = (PostcardsCell) cache.getCell(postcardCellID);
             if (postcardCell != null) {
                 postcardCell.setHud(this);
+                logger.severe("got postcard cell after " + i + " tries");
                 return postcardCell;
             }
 
-            return postcardCell;
+
 
         }
-        logger.severe("unable to locate postcard cell in 2 secs");
+        logger.severe("unable to locate postcard cell in 10 secs");
         return null;
     }
 
