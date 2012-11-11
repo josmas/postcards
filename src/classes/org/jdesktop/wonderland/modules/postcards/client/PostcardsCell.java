@@ -36,7 +36,10 @@ public class PostcardsCell extends Cell {
         stillButtonModel.addItemListener(new StillButtonChangeListener());
     }
 
-        void captureImage() {
+    void captureImage() {
+        if (hud == null) {
+            hud = new PostcardsHUD(this);
+        }
         SceneWorker.addWorker(new WorkCommit() {
 
             public void commit() {
@@ -50,14 +53,13 @@ public class PostcardsCell extends Cell {
         if (rendererType == RendererType.RENDERER_JME) {
             this.renderer = new PostcardsCellRenderer(this);
             return this.renderer;
-        }
-        else {
+        } else {
             return super.createCellRenderer(rendererType);
         }
     }
 
     public DefaultButtonModel getStillButtonModel() {
-            return stillButtonModel;
+        return stillButtonModel;
     }
 
     class StillButtonChangeListener implements ItemListener {

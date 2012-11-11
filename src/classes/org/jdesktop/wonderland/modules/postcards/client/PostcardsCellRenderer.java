@@ -222,6 +222,7 @@ public class PostcardsCellRenderer extends BasicRenderer implements RenderUpdate
         BufferedImage outputImage = createBufferedImage(textureBuffer.getTextureData());
         // get HUD, create if necessary
         // copy to HUD window
+
         hud.setCaptureImage (outputImage);
 //        Calendar calendar = Calendar.getInstance();
 //        String imageFilename = "Wonderland.jpg";

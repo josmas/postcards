@@ -42,7 +42,8 @@ public class PostcardsHUD {
     /**
      * Constructor to grab the main HUD area, and display the HUD within it.
      */
-    public PostcardsHUD() {
+    public PostcardsHUD(PostcardsCell cell) {
+        postcardCell = cell;
         mainHUD = HUDManagerFactory.getHUDManager().getHUD("main");
         displayHud();
 
@@ -79,7 +80,6 @@ public class PostcardsHUD {
             }
 
 
-
         }
         logger.severe("unable to locate postcard cell in 10 secs");
         return null;
@@ -87,7 +87,7 @@ public class PostcardsHUD {
 
 
     private void displayHud() {
-        postcardsPanel = createPanelForHUD();
+//        postcardsPanel = createPanelForHUD();
         createHUDComponent();
         setHudComponentVisible(true);
     }
@@ -111,8 +111,8 @@ public class PostcardsHUD {
 
             public void run() {
                 if (sampleHud == null) {
-                    JPanel panelForHUD = createPanelForHUD();
-                    sampleHud = mainHUD.createComponent(panelForHUD);
+                    postcardsPanel = createPanelForHUD();
+                    sampleHud = mainHUD.createComponent(postcardsPanel);
                     sampleHud.setDecoratable(true);
                     sampleHud.setName("Postcards HUD");
                     sampleHud.setPreferredLocation(Layout.CENTER);
